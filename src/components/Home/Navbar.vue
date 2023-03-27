@@ -1,5 +1,5 @@
 <template>
-    <nav class="bg-transparent">
+    <nav :class="{'bg-transparent': !scrolled, 'bg-white': scrolled}" class="bg-transparent fixed w-full transition duration-300 ease-in-out z-50">
         <div class="container mx-auto">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
@@ -20,11 +20,22 @@
   
 <script>
 export default {
-    data() {
-        return {
-            isOpen: false,
-        };
-    },
-};
+  data() {
+    return {
+      scrolled: false
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll() {
+      this.scrolled = window.scrollY > 0
+    }
+  }
+}
 </script>
   

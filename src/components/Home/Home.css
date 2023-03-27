@@ -1,0 +1,43 @@
+.future-title {
+    color: var(--primary, #024d94);
+    text-align: center;
+    font: 900 60px/78px "Nunito Sans", sans-serif;
+}
+
+.future-description {
+    text-align: center;
+}
+
+.future-title-1{
+    margin-left: 10px;
+}
+
+.title {
+    margin-top: 150px;
+    color: var(--white, #ffffff);
+    text-align: left;
+    font: 500 72px/78px "Nunito Sans", sans-serif;
+    position: relative;
+}
+
+.description {
+    color: var(--white, #ffffff);
+    text-align: left;
+    font: 300 16px/30px "Open Sans", sans-serif;
+    width: 585px;
+}
+
+.title2 {
+    color: var(--primary, #024d94);
+    text-align: left;
+    font: 900 60px/78px "Nunito Sans", sans-serif;
+    position: relative;
+    width: 645px;
+}
+
+.description2 {
+    color: var(--black, #000000);
+    text-align: left;
+    font: 300 16px/30px "Open Sans", sans-serif;
+    width: 585px;
+}
