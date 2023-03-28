@@ -4,18 +4,39 @@
             <h1 class="block font-bold mb-2">Product Organization</h1><br>
             <div class="mb-2">
                 <label class="block font-bold mb-2" for="category">Category:</label>
-                <select v-model="selectedCategory" @change="onCategoryChange" class=" bg-white appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline" id="category">
+                <select v-model="selectedCategory" @change="onCategoryChange"
+                    class=" bg-white appearance-none border rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="category">
                     <option value="" disabled>Select a category</option>
                     <option v-for="category in categories" :key="category" :value="category">{{ category }}</option>
+                    <option value="add-new">Add New Category</option>
                 </select>
-            </div>
-            <div v-if="showPopup">
-                <form @submit.prevent="addCategory">
-                    <label for="new-category">New category name:</label>
-                    <input type="text" id="new-category" v-model="newCategoryName">
-                    <button type="submit">Add category</button>
-                    <button type="button" @click="closePopup">Cancel</button>
-                </form>
+                <div v-if="selectedCategory === 'add-new'">
+                    <button @click="showPopup = true"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Add New Category
+                    </button>
+                </div>
+
+                <div v-if="showPopup"
+                    class="fixed top-0 left-0 h-screen w-screen bg-gray-500 bg-opacity-50 flex justify-center items-center">
+                    <div class="bg-white p-4 rounded shadow-lg">
+                        <h2 class="font-bold mb-4">Add New Category</h2>
+                        <label for="new-category" class="block font-bold">Category Name:</label>
+                        <input id="new-category" type="text" v-model="newCategoryName"
+                            class="border border-gray-400 rounded-md p-2 mb-4 w-full">
+                        <div class="flex justify-end">
+                            <button @click="showPopup = false"
+                                class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded mr-2">
+                                Cancel
+                            </button>
+                            <button @click="addNewCategory"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="mb-2">
                 <label class="block font-regular mb-2" for="Brand">Product Brand</label>
@@ -47,29 +68,20 @@ export default {
             message: '',
             categories: ['General', 'Technical', 'Sales'],
             selectedCategory: '',
+            newCategoryName: '',
             showPopup: false,
-            newCategoryName: ''
         }
     },
     methods: {
-    onCategoryChange() {
-      if (!this.categories.includes(this.selectedCategory)) {
-        this.showPopup = true
-      }
+        addNewCategory() {
+            if (this.newCategoryName) {
+                this.categories.push(this.newCategoryName);
+                this.selectedCategory = this.newCategoryName;
+                this.newCategoryName = '';
+                this.showPopup = false;
+            }
+        },
     },
-    
-    addCategory() {
-      this.categories.push(this.newCategoryName)
-      this.selectedCategory = this.newCategoryName
-      this.newCategoryName = ''
-      this.showPopup = false
-    },
-    
-    closePopup() {
-      this.showPopup = false
-      this.newCategoryName = ''
-    }
-  }
 }
 </script>
   
