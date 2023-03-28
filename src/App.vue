@@ -1,16 +1,40 @@
 <script setup>
-import Navbar from './components/Home/Navbar.vue'
-import Footer from './components/Home/Footer.vue'
-import jumbotron from './components/Home/jumbotron.vue'
-import About from './components/Home/About.vue'
-import Future from './components/Home/Future.vue'
-
+import Navbar from './components/Form/Navbar.vue'
+import LandingPage from '@/assets/LandingPage.png'
+import Form from '@/assets/Form.png'
 </script>
 
 <template>
   <Navbar />
-  <jumbotron />
-  <About />
-  <Future />
-  <Footer />
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-10 justify-center">
+    <div class="p-4">
+      <div class="flex flex-col">
+        <img :src="LandingPage" alt="My image" class="float-left block mx-auto" />
+        <div class="py-10">
+          <router-link to="/pages/Home.vue">
+            <button class="block mx-auto bg-[#F8D171] text-[#024D94] font-bold py-2 px-4 rounded">View Page</button>
+          </router-link>
+        </div>
+      </div>
+    </div>
+    <div class="p-4">
+      <div class="flex flex-col">
+        <img :src="Form" alt="My image" class="float-left block mx-auto" />
+        <div class="py-10">
+          <button class="block mx-auto bg-[#F8D171] text-[#024D94] font-bold py-2 px-4 rounded">View Page</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      LandingPage: LandingPage,
+      Form: Form,
+    }
+  },
+}
+</script>

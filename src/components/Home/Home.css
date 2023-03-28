@@ -1,3 +1,6 @@
+.image-jumbotron {
+    margin-top: 150px;
+}
 .future-title {
     color: var(--primary, #024d94);
     text-align: center;

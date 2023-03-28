@@ -1,5 +1,5 @@
 <script setup>
-import Img from '@/assets/schedule-offline.png'
+import Img from '@/assets/jumbotron1.png'
 </script>
 
 <template>
@@ -20,7 +20,7 @@ import Img from '@/assets/schedule-offline.png'
             </div>
         </div>
         <div class="bg-[#F8D171]">
-            <img :src="Img" alt="My image" />
+            <img :src="Img" alt="My image" class="image-jumbotron"/>
         </div>
     </section>
 </template>

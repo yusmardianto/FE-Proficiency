@@ -1,13 +1,16 @@
 <script setup>
-import Navbar from './components/Navbar.vue'
-import Content from './components/Content.vue'
-import Product from './components/Product.vue'
+import Navbar from './components/Home/Navbar.vue'
+import Footer from './components/Home/Footer.vue'
+import jumbotron from './components/Home/jumbotron.vue'
+import About from './components/Home/About.vue'
+import Future from './components/Home/Future.vue'
+
 </script>
 
 <template>
-  <div class="bg-slate-100">
-    <Navbar />
-  </div>
+  <Navbar />
+  <jumbotron />
+  <About />
+  <Future />
+  <Footer />
 </template>
-
-<style scoped></style>
